@@ -1,4 +1,4 @@
-import { makeId, readJsonFile, writeJsonFile } from "./utils.js"
+import { makeId, readJsonFile, writeJsonFile } from "../../services/utils.js"
 import { PDFDocument, rgb, StandardFonts } from 'pdf-lib'
 
 export const bugService = {
@@ -17,7 +17,6 @@ async function query(filterBy) {
         if (filterBy.title) {
             const regExp = new RegExp(filterBy.title, 'i')
             bugsToDisplay = bugsToDisplay.filter(bug => regExp.test(bug.title))
-            console.log("🚀 ~ query ~ bugsToDisplay:", bugsToDisplay)
         }
 
         if (filterBy.severity) {
