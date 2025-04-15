@@ -1,0 +1,33 @@
+[
+    { 
+        "_id" : "b1", 
+        "title" : "Cannot save a Car", 
+        "severity" : 3, 
+        "createdAt" : 1542107359454
+    } ,
+    { 
+        "_id" : "b2", 
+        "title" : "Cannot add a Car", 
+        "severity" : 6, 
+        "createdAt" : 1542107359454
+    } ,
+    { 
+        "_id" : "b3", 
+        "title" : "Cannot delete a Car", 
+        "severity" : 1, 
+        "createdAt" : 1542107359454
+    } ,
+    { 
+        "_id" : "b4", 
+        "title" : "Cannot create a Car", 
+        "severity" : 8, 
+        "createdAt" : 1542107359454
+    } ,
+    { 
+        "_id" : "b5", 
+        "title" : "Cannot edit a Car", 
+        "severity" : 6, 
+        "createdAt" : 1542107359454
+    } 
+
+]
