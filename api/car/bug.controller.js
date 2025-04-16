@@ -6,12 +6,13 @@ export async function getBugs(req, res) {
     const filterBy = {
         title: req.query.title,
         severity: +req.query.severity,
+        sortBy: req.query.sortBy
     }
     try {
         const bugs = await bugService.query(filterBy)
         res.send(bugs)
     } catch (error) {
-        loggerService.error(`Couldn't get bugs`, err)
+        loggerService.error(`Couldn't get bugs`, error)
         res.status(400).send(`Couldn't get bugs`)
     }
 }

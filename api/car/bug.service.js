@@ -9,7 +9,7 @@ export const bugService = {
     generatePdfFromData
 }
 
-const bugs  = readJsonFile('./data/bugs.json')
+const bugs = readJsonFile('./data/bugs.json')
 
 async function query(filterBy) {
     let bugsToDisplay = bugs
@@ -21,6 +21,26 @@ async function query(filterBy) {
 
         if (filterBy.severity) {
             bugsToDisplay = bugsToDisplay.filter(bug => bug.severity >= filterBy.severity)
+        }
+        if (filterBy.sortBy) {
+            switch (filterBy.sortBy) {
+                case 'title':
+                    bugsToDisplay.sort((a, b) => {
+                        return (a.title || '').localeCompare(b.title || '')
+                    })
+                    break;
+
+                case 'severity':
+                    bugsToDisplay.sort((a, b) => Number(b.severity) - Number(a.severity))
+                    break;
+
+                case 'createdAt':
+                    bugsToDisplay.sort((a, b) => Number(b.createdAt) - Number(a.createdAt))
+                    break;
+
+                default:
+                    break;
+            }
         }
         return bugsToDisplay
     } catch (err) {
