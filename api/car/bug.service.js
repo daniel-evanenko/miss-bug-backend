@@ -13,6 +13,7 @@ const bugs = readJsonFile('./data/bugs.json')
 
 async function query(filterBy) {
     let bugsToDisplay = bugs
+    console.log("🚀 ~ query ~ bugsToDisplay:", bugsToDisplay)
     try {
         if (filterBy.title) {
             const regExp = new RegExp(filterBy.title, 'i')
@@ -21,6 +22,11 @@ async function query(filterBy) {
 
         if (filterBy.severity) {
             bugsToDisplay = bugsToDisplay.filter(bug => bug.severity >= filterBy.severity)
+        }
+        if (Array.isArray(filterBy.byLabels) && filterBy.byLabels.length > 0) {
+            bugsToDisplay = bugsToDisplay.filter(bug =>
+                Array.isArray(bug.labels) && filterBy.byLabels.every(label => bug.labels.includes(label))
+            );
         }
         if (filterBy.sortBy) {
             switch (filterBy.sortBy) {

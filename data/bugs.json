@@ -1,434 +1,163 @@
 [
     {
-        "title": "test",
-        "severity": 554,
-        "description": "3345sdfs",
-        "createdAt": 1744742271816,
-        "_id": "yzJ25U",
-        "labels" : "['critical', 'need-CR', 'dev-branch']"
-
+      "_id": "b1",
+      "title": "Sample bug report 1",
+      "severity": 2,
+      "description": "Auto-generated bug description #1",
+      "createdAt": 1681776000000,
+      "labels": ["api"]
     },
     {
-        "title": "new byg",
-        "severity": "999",
-        "description": "test",
-        "createdAt": "1744644193017",
-        "_id": "qvYjf2",
-        "labels" : "['critical', 'need-CR', 'dev-branch']"
-
+      "_id": "b2",
+      "title": "Sample bug report 2",
+      "severity": 1,
+      "description": "Auto-generated bug description #2",
+      "createdAt": 1696896000000,
+      "labels": ["minor", "security", "api"]
     },
     {
-        "_id": "b1",
-        "title": "Cannot save a Car",
-        "severity": "0",
-        "description": "0",
-        "createdAt": "1542107359454",
-        "labels" : "['critical', 'need-CR', 'dev-branch']"
-
+      "_id": "b3",
+      "title": "Sample bug report 3",
+      "severity": 1,
+      "description": "Auto-generated bug description #3",
+      "createdAt": 1718409600000,
+      "labels": ["security", "dev-branch", "minor"]
     },
     {
-        "_id": "b2",
-        "title": "Cannot add a Car",
-        "severity": 6,
-        "description": "c",
-        "createdAt": 1542107359454,
-        "labels" : "['critical', 'need-CR', 'dev-branch']"
-
+      "_id": "b4",
+      "title": "Sample bug report 4",
+      "severity": 1,
+      "description": "Auto-generated bug description #4",
+      "createdAt": 1675728000000,
+      "labels": ["bug", "urgent"]
     },
     {
-        "_id": "b3",
-        "title": "Cannot delete a Car",
-        "severity": 1,
-        "description": "d",
-        "createdAt": 1542107359454,
-        "labels" : "['critical', 'need-CR', 'dev-branch']"
-
+      "_id": "b5",
+      "title": "Sample bug report 5",
+      "severity": 3,
+      "description": "Auto-generated bug description #5",
+      "createdAt": 1721865600000,
+      "labels": ["validation", "dev-branch"]
     },
     {
-        "_id": "b5",
-        "title": "Cannot edit a Car",
-        "severity": "3",
-        "description": "66",
-        "createdAt": "1542107359454",
-        "labels" : "['critical', 'need-CR', 'dev-branch']"
-
+      "_id": "b6",
+      "title": "Sample bug report 6",
+      "severity": 2,
+      "description": "Auto-generated bug description #6",
+      "createdAt": 1697673600000,
+      "labels": ["frontend", "bug"]
     },
     {
-        "title": "test",
-        "severity": 554,
-        "description": "3345sdfs",
-        "createdAt": 1744742271816,
-        "_id": "yzJ25U",
-        "labels" : "['critical', 'need-CR', 'dev-branch']"
-
+      "_id": "b7",
+      "title": "Sample bug report 7",
+      "severity": 2,
+      "description": "Auto-generated bug description #7",
+      "createdAt": 1684713600000,
+      "labels": ["need-CR", "performance"]
     },
     {
-        "title": "new byg",
-        "severity": "999",
-        "description": "test",
-        "createdAt": "1744644193017",
-        "_id": "qvYjf2",
-        "labels" : "['critical', 'need-CR', 'dev-branch']"
-
+      "_id": "b8",
+      "title": "Sample bug report 8",
+      "severity": 3,
+      "description": "Auto-generated bug description #8",
+      "createdAt": 1681776000000,
+      "labels": ["api", "security"]
     },
     {
-        "_id": "b1",
-        "title": "Cannot save a Car",
-        "severity": "0",
-        "description": "0",
-        "createdAt": "1542107359454",
-        "labels" : "['critical', 'need-CR', 'dev-branch']"
-
+      "_id": "b9",
+      "title": "Sample bug report 9",
+      "severity": 1,
+      "description": "Auto-generated bug description #9",
+      "createdAt": 1685404800000,
+      "labels": ["critical"]
     },
     {
-        "_id": "b2",
-        "title": "Cannot add a Car",
-        "severity": 6,
-        "description": "c",
-        "createdAt": 1542107359454,
-        "labels" : "['critical', 'need-CR', 'dev-branch']"
-
+      "_id": "b10",
+      "title": "Sample bug report 10",
+      "severity": 3,
+      "description": "Auto-generated bug description #10",
+      "createdAt": 1677283200000,
+      "labels": ["frontend", "validation"]
     },
     {
-        "_id": "b3",
-        "title": "Cannot delete a Car",
-        "severity": 1,
-        "description": "d",
-        "createdAt": 1542107359454,
-        "labels" : "['critical', 'need-CR', 'dev-branch']"
-
+      "_id": "b11",
+      "title": "Sample bug report 11",
+      "severity": 1,
+      "description": "Auto-generated bug description #11",
+      "createdAt": 1685404800000,
+      "labels": ["backend", "ux"]
     },
     {
-        "_id": "b5",
-        "title": "Cannot edit a Car",
-        "severity": "3",
-        "description": "66",
-        "createdAt": "1542107359454",
-        "labels" : "['critical', 'need-CR', 'dev-branch']"
-
+      "_id": "b12",
+      "title": "Sample bug report 12",
+      "severity": 2,
+      "description": "Auto-generated bug description #12",
+      "createdAt": 1675036800000,
+      "labels": ["performance", "api"]
     },
     {
-        "title": "test",
-        "severity": 554,
-        "description": "3345sdfs",
-        "createdAt": 1744742271816,
-        "_id": "yzJ25U",
-        "labels" : "['critical', 'need-CR', 'dev-branch']"
-
+      "_id": "b13",
+      "title": "Sample bug report 13",
+      "severity": 2,
+      "description": "Auto-generated bug description #13",
+      "createdAt": 1677283200000,
+      "labels": ["bug", "dev-branch", "critical"]
     },
     {
-        "title": "new byg",
-        "severity": "999",
-        "description": "test",
-        "createdAt": "1744644193017",
-        "_id": "qvYjf2",
-        "labels" : "['critical', 'need-CR', 'dev-branch']"
-
+      "_id": "b14",
+      "title": "Sample bug report 14",
+      "severity": 1,
+      "description": "Auto-generated bug description #14",
+      "createdAt": 1684713600000,
+      "labels": ["minor"]
     },
     {
-        "_id": "b1",
-        "title": "Cannot save a Car",
-        "severity": "0",
-        "description": "0",
-        "createdAt": "1542107359454",
-        "labels" : "['critical', 'need-CR', 'dev-branch']"
-
+      "_id": "b15",
+      "title": "Sample bug report 15",
+      "severity": 3,
+      "description": "Auto-generated bug description #15",
+      "createdAt": 1684713600000,
+      "labels": ["security", "need-CR"]
     },
     {
-        "_id": "b2",
-        "title": "Cannot add a Car",
-        "severity": 6,
-        "description": "c",
-        "createdAt": 1542107359454,
-        "labels" : "['critical', 'need-CR', 'dev-branch']"
-
+      "_id": "b16",
+      "title": "Sample bug report 16",
+      "severity": 1,
+      "description": "Auto-generated bug description #16",
+      "createdAt": 1696896000000,
+      "labels": ["api", "backend"]
     },
     {
-        "_id": "b3",
-        "title": "Cannot delete a Car",
-        "severity": 1,
-        "description": "d",
-        "createdAt": 1542107359454,
-        "labels" : "['critical', 'need-CR', 'dev-branch']"
-
+      "_id": "b17",
+      "title": "Sample bug report 17",
+      "severity": 2,
+      "description": "Auto-generated bug description #17",
+      "createdAt": 1718409600000,
+      "labels": ["urgent", "bug"]
     },
     {
-        "_id": "b5",
-        "title": "Cannot edit a Car",
-        "severity": "3",
-        "description": "66",
-        "createdAt": "1542107359454",
-        "labels" : "['critical', 'need-CR', 'dev-branch']"
-
+      "_id": "b18",
+      "title": "Sample bug report 18",
+      "severity": 1,
+      "description": "Auto-generated bug description #18",
+      "createdAt": 1713110000000,
+      "labels": ["ux", "frontend", "critical"]
     },
     {
-        "title": "test",
-        "severity": 554,
-        "description": "3345sdfs",
-        "createdAt": 1744742271816,
-        "_id": "yzJ25U",
-        "labels" : "['critical', 'need-CR', 'dev-branch']"
-
+      "_id": "b19",
+      "title": "Sample bug report 19",
+      "severity": 3,
+      "description": "Auto-generated bug description #19",
+      "createdAt": 1697673600000,
+      "labels": ["validation"]
     },
     {
-        "title": "new byg",
-        "severity": "999",
-        "description": "test",
-        "createdAt": "1744644193017",
-        "_id": "qvYjf2",
-        "labels" : "['critical', 'need-CR', 'dev-branch']"
-
-    },
-    {
-        "_id": "b1",
-        "title": "Cannot save a Car",
-        "severity": "0",
-        "description": "0",
-        "createdAt": "1542107359454",
-        "labels" : "['critical', 'need-CR', 'dev-branch']"
-
-    },
-    {
-        "_id": "b2",
-        "title": "Cannot add a Car",
-        "severity": 6,
-        "description": "c",
-        "createdAt": 1542107359454,
-        "labels" : "['critical', 'need-CR', 'dev-branch']"
-
-    },
-    {
-        "_id": "b3",
-        "title": "Cannot delete a Car",
-        "severity": 1,
-        "description": "d",
-        "createdAt": 1542107359454,
-        "labels" : "['critical', 'need-CR', 'dev-branch']"
-
-    },
-    {
-        "_id": "b5",
-        "title": "Cannot edit a Car",
-        "severity": "3",
-        "description": "66",
-        "createdAt": "1542107359454",
-        "labels" : "['critical', 'need-CR', 'dev-branch']"
-
-    },
-    {
-        "title": "test",
-        "severity": 554,
-        "description": "3345sdfs",
-        "createdAt": 1744742271816,
-        "_id": "yzJ25U",
-        "labels" : "['critical', 'need-CR', 'dev-branch']"
-
-    },
-    {
-        "title": "new byg",
-        "severity": "999",
-        "description": "test",
-        "createdAt": "1744644193017",
-        "_id": "qvYjf2",
-        "labels" : "['critical', 'need-CR', 'dev-branch']"
-
-    },
-    {
-        "_id": "b1",
-        "title": "Cannot save a Car",
-        "severity": "0",
-        "description": "0",
-        "createdAt": "1542107359454",
-        "labels" : "['critical', 'need-CR', 'dev-branch']"
-
-    },
-    {
-        "_id": "b2",
-        "title": "Cannot add a Car",
-        "severity": 6,
-        "description": "c",
-        "createdAt": 1542107359454,
-        "labels" : "['critical', 'need-CR', 'dev-branch']"
-
-    },
-    {
-        "_id": "b3",
-        "title": "Cannot delete a Car",
-        "severity": 1,
-        "description": "d",
-        "createdAt": 1542107359454,
-        "labels" : "['critical', 'need-CR', 'dev-branch']"
-
-    },
-    {
-        "_id": "b5",
-        "title": "Cannot edit a Car",
-        "severity": "3",
-        "description": "66",
-        "createdAt": "1542107359454",
-        "labels" : "['critical', 'need-CR', 'dev-branch']"
-
-    },
-    {
-        "title": "test",
-        "severity": 554,
-        "description": "3345sdfs",
-        "createdAt": 1744742271816,
-        "_id": "yzJ25U",
-        "labels" : "['critical', 'need-CR', 'dev-branch']"
-
-    },
-    {
-        "title": "new byg",
-        "severity": "999",
-        "description": "test",
-        "createdAt": "1744644193017",
-        "_id": "qvYjf2",
-        "labels" : "['critical', 'need-CR', 'dev-branch']"
-
-    },
-    {
-        "_id": "b1",
-        "title": "Cannot save a Car",
-        "severity": "0",
-        "description": "0",
-        "createdAt": "1542107359454",
-        "labels" : "['critical', 'need-CR', 'dev-branch']"
-
-    },
-    {
-        "_id": "b2",
-        "title": "Cannot add a Car",
-        "severity": 6,
-        "description": "c",
-        "createdAt": 1542107359454,
-        "labels" : "['critical', 'need-CR', 'dev-branch']"
-
-    },
-    {
-        "_id": "b3",
-        "title": "Cannot delete a Car",
-        "severity": 1,
-        "description": "d",
-        "createdAt": 1542107359454,
-        "labels" : "['critical', 'need-CR', 'dev-branch']"
-
-    },
-    {
-        "_id": "b5",
-        "title": "Cannot edit a Car",
-        "severity": "3",
-        "description": "66",
-        "createdAt": "1542107359454",
-        "labels" : "['critical', 'need-CR', 'dev-branch']"
-
-    },
-    {
-        "title": "test",
-        "severity": 554,
-        "description": "3345sdfs",
-        "createdAt": 1744742271816,
-        "_id": "yzJ25U",
-        "labels" : "['critical', 'need-CR', 'dev-branch']"
-
-    },
-    {
-        "title": "new byg",
-        "severity": "999",
-        "description": "test",
-        "createdAt": "1744644193017",
-        "_id": "qvYjf2",
-        "labels" : "['critical', 'need-CR', 'dev-branch']"
-
-    },
-    {
-        "_id": "b1",
-        "title": "Cannot save a Car",
-        "severity": "0",
-        "description": "0",
-        "createdAt": "1542107359454",
-        "labels" : "['critical', 'need-CR', 'dev-branch']"
-
-    },
-    {
-        "_id": "b2",
-        "title": "Cannot add a Car",
-        "severity": 6,
-        "description": "c",
-        "createdAt": 1542107359454,
-        "labels" : "['critical', 'need-CR', 'dev-branch']"
-
-    },
-    {
-        "_id": "b3",
-        "title": "Cannot delete a Car",
-        "severity": 1,
-        "description": "d",
-        "createdAt": 1542107359454,
-        "labels" : "['critical', 'need-CR', 'dev-branch']"
-
-    },
-    {
-        "_id": "b5",
-        "title": "Cannot edit a Car",
-        "severity": "3",
-        "description": "66",
-        "createdAt": "1542107359454",
-        "labels" : "['critical', 'need-CR', 'dev-branch']"
-
-    },
-    {
-        "title": "test",
-        "severity": 554,
-        "description": "3345sdfs",
-        "createdAt": 1744742271816,
-        "_id": "yzJ25U",
-        "labels" : "['critical', 'need-CR', 'dev-branch']"
-
-    },
-    {
-        "title": "new byg",
-        "severity": "999",
-        "description": "test",
-        "createdAt": "1744644193017",
-        "_id": "qvYjf2",
-        "labels" : "['critical', 'need-CR', 'dev-branch']"
-
-    },
-    {
-        "_id": "b1",
-        "title": "Cannot save a Car",
-        "severity": "0",
-        "description": "0",
-        "createdAt": "1542107359454",
-        "labels" : "['critical', 'need-CR', 'dev-branch']"
-
-    },
-    {
-        "_id": "b2",
-        "title": "Cannot add a Car",
-        "severity": 6,
-        "description": "c",
-        "createdAt": 1542107359454,
-        "labels" : "['critical', 'need-CR', 'dev-branch']"
-
-    },
-    {
-        "_id": "b3",
-        "title": "Cannot delete a Car",
-        "severity": 1,
-        "description": "d",
-        "createdAt": 1542107359454,
-        "labels" : "['critical', 'need-CR', 'dev-branch']"
-
-    },
-    {
-        "_id": "b5",
-        "title": "Cannot edit a Car",
-        "severity": "3",
-        "description": "66",
-        "createdAt": "1542107359454",
-        "labels" : "['critical', 'need-CR', 'dev-branch']"
-
+      "_id": "b20",
+      "title": "Sample bug report 20",
+      "severity": 2,
+      "description": "Auto-generated bug description #20",
+      "createdAt": 1675728000000,
+      "labels": ["bug", "api", "critical"]
     }
-]
+  ]
+  
