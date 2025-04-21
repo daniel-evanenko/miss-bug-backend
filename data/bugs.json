@@ -92,14 +92,9 @@
     {
         "_id": "b18",
         "title": "Sample bug report 18",
-        "severity": 1,
-        "description": "Auto-generated bug description #18",
-        "createdAt": 1713110000000,
-        "labels": [
-            "ux",
-            "frontend",
-            "critical"
-        ]
+        "severity": 0,
+        "description": 0,
+        "createdAt": 1713110000000
     },
     {
         "_id": "b19",
