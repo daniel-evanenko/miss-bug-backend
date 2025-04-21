@@ -3,7 +3,8 @@ import express from 'express'
 import { loggerService } from './services/logger.service.js'
 import cors from 'cors'
 import cookieParser from 'cookie-parser'
-import { bugRoutes } from './api/car/bug.routes.js'
+import { bugRoutes } from './api/bug/bug.routes.js'
+import { userRoutes } from './api/user/user.routes.js'
 const app = express()
 
 const corsOptions = {
@@ -19,6 +20,7 @@ app.use(cors(corsOptions))
 app.use(cookieParser())
 app.use(express.json())
 
+app.use('/api/user', userRoutes)
 app.use('/api/bug', bugRoutes)
 
 app.get('/**', (req, res) => {
