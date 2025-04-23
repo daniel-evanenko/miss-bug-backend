@@ -1,51 +1,36 @@
 [
     {
-        "fullname": "sdf",
-        "username": "sdfs",
-        "password": "sdfsdf",
-        "score": 444,
-        "_id": "bKlth0"
+      "_id": "u101",
+      "fullname": "Puki Norma",
+      "username": "puki",
+      "password": "123",
+      "isAdmin": false,
+      "score": 10000,
+      "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png"
     },
     {
-        "_id": "QuRnve",
-        "fullname": "daniel",
-        "username": "sdfs",
-        "password": "sdfsdf",
-        "score": 444
+      "_id": "u102",
+      "fullname": "Master Adminov",
+      "username": "admin",
+      "password": "123",
+      "isAdmin": true,
+      "score": 10000,
+      "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png"
     },
     {
-        "fullname": "asd",
-        "username": "asd",
-        "password": "asd",
-        "score": 33,
-        "_id": "xVvj4w"
+      "_id": "u103",
+      "fullname": "Muki G",
+      "username": "muki",
+      "password": "123",
+      "score": 10000,
+      "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png"
     },
     {
-        "_id": "v6pMvq",
-        "fullname": "asd",
-        "username": "asd",
-        "password": "asd",
-        "score": 40
-    },
-    {
-        "_id": "u104",
-        "fullname": "Muki d3",
-        "username": "muki",
-        "password": "muki1234",
-        "score": 100
-    },
-    {
-        "_id": "u105",
-        "fullname": "Muki e",
-        "username": "muki",
-        "password": "muki1234",
-        "score": 100
-    },
-    {
-        "_id": "u106",
-        "fullname": "Muki f",
-        "username": "muki",
-        "password": "muki1234",
-        "score": 100
+      "_id": "u104",
+      "fullname": "Muki G",
+      "username": "muki",
+      "password": "123",
+      "score": 10000,
+      "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png"
     }
-]
+  ]

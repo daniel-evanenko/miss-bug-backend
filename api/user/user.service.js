@@ -5,17 +5,14 @@ export const userService = {
     getById,
     remove,
     save,
+    getByUsername
+
 }
 
 const users = readJsonFile('./data/users.json')
 
 async function query() {
-    let bugsToDisplay = users
-    try {
-        return bugsToDisplay
-    } catch (err) {
-        throw err
-    }
+    return users
 }
 
 async function getById(userId) {
@@ -33,7 +30,7 @@ async function remove(userId) {
         const bugIdx = users.findIndex(user => user._id === userId)
         if (bugIdx === -1) throw new Error('Cannot find user')
         users.splice(bugIdx, 1)
-        await saveusersToFile()
+        await _saveUsersToFile()
     } catch (err) {
         console.log('err:', err)
     }
@@ -47,9 +44,10 @@ async function save(userToSave) {
             users[bugIdx] = userToSave
         } else {
             userToSave._id = makeId()
+            userToSave.imgUrl = 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png'
             users.unshift(userToSave)
         }
-        await saveusersToFile()
+        await _saveUsersToFile()
         return userToSave
     } catch (err) {
         throw err
@@ -58,6 +56,17 @@ async function save(userToSave) {
 
 
 
-function saveusersToFile() {
+function _saveUsersToFile() {
     return writeJsonFile('./data/users.json', users)
+}
+
+async function getByUsername(username) {
+    try {
+        const user = users.find(user => user.username === username)
+        // if (!user) throw `User not found by username : ${username}`
+        return user
+    } catch (err) {
+        loggerService.error('userService[getByUsername] : ', err)
+        throw err
+    }
 }

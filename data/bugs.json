@@ -7,7 +7,11 @@
         "createdAt": 1681776000000,
         "labels": [
             "api"
-        ]
+        ],
+        "owner": {
+            "_id": "u101",
+            "fullname": "Puki Norma"
+        }
     },
     {
         "_id": "b10",
@@ -18,7 +22,11 @@
         "labels": [
             "frontend",
             "validation"
-        ]
+        ],
+        "owner": {
+            "_id": "u101",
+            "fullname": "Puki Norma"
+        }
     },
     {
         "_id": "b11",
@@ -29,7 +37,11 @@
         "labels": [
             "backend",
             "ux"
-        ]
+        ],
+        "owner": {
+            "_id": "u101",
+            "fullname": "Puki Norma"
+        }
     },
     {
         "_id": "b12",
@@ -40,7 +52,11 @@
         "labels": [
             "performance",
             "api"
-        ]
+        ],
+        "owner": {
+            "_id": "u101",
+            "fullname": "Puki Norma"
+        }
     },
     {
         "_id": "b13",
@@ -52,31 +68,11 @@
             "bug",
             "dev-branch",
             "critical"
-        ]
-    },
-    {
-        "_id": "b14",
-        "title": "Sample bug report 14",
-        "severity": 1,
-        "description": "Auto-generated bug description #14",
-        "createdAt": 1684713600000,
-        "labels": [
-            "minor"
-        ]
-    },
-    {
-        "_id": "b15",
-        "title": "Sample bug report 15",
-        "severity": 0,
-        "description": 0,
-        "createdAt": 1684713600000
-    },
-    {
-        "_id": "b16",
-        "title": "Sample bug report 16",
-        "severity": 0,
-        "description": 0,
-        "createdAt": 1696896000000
+        ],
+        "owner": {
+            "_id": "u101",
+            "fullname": "Puki Norma"
+        }
     },
     {
         "_id": "b17",
@@ -87,24 +83,18 @@
         "labels": [
             "urgent",
             "bug"
-        ]
-    },
-    {
-        "_id": "b18",
-        "title": "Sample bug report 18",
-        "severity": 0,
-        "description": 0,
-        "createdAt": 1713110000000
+        ],
+        "owner": {
+            "_id": "u101",
+            "fullname": "Puki Norma"
+        }
     },
     {
         "_id": "b19",
         "title": "Sample bug report 19",
-        "severity": 3,
-        "description": "Auto-generated bug description #19",
-        "createdAt": 1697673600000,
-        "labels": [
-            "validation"
-        ]
+        "severity": 0,
+        "description": 0,
+        "createdAt": 1697673600000
     },
     {
         "_id": "b2",
@@ -116,7 +106,11 @@
             "minor",
             "security",
             "api"
-        ]
+        ],
+        "owner": {
+            "_id": "u101",
+            "fullname": "Puki Norma"
+        }
     },
     {
         "_id": "b20",
@@ -128,7 +122,11 @@
             "bug",
             "api",
             "critical"
-        ]
+        ],
+        "owner": {
+            "_id": "u101",
+            "fullname": "Puki Norma"
+        }
     },
     {
         "_id": "b3",
@@ -140,7 +138,11 @@
             "security",
             "dev-branch",
             "minor"
-        ]
+        ],
+        "owner": {
+            "_id": "u101",
+            "fullname": "Puki Norma"
+        }
     },
     {
         "_id": "b4",
@@ -151,7 +153,11 @@
         "labels": [
             "bug",
             "urgent"
-        ]
+        ],
+        "owner": {
+            "_id": "u101",
+            "fullname": "Puki Norma"
+        }
     },
     {
         "_id": "b5",
@@ -162,7 +168,11 @@
         "labels": [
             "validation",
             "dev-branch"
-        ]
+        ],
+        "owner": {
+            "_id": "u101",
+            "fullname": "Puki Norma"
+        }
     },
     {
         "_id": "b6",
@@ -173,7 +183,11 @@
         "labels": [
             "frontend",
             "bug"
-        ]
+        ],
+        "owner": {
+            "_id": "u101",
+            "fullname": "Puki Norma"
+        }
     },
     {
         "_id": "b7",
@@ -184,7 +198,11 @@
         "labels": [
             "need-CR",
             "performance"
-        ]
+        ],
+        "owner": {
+            "_id": "u101",
+            "fullname": "Puki Norma"
+        }
     },
     {
         "_id": "b8",
@@ -195,7 +213,11 @@
         "labels": [
             "api",
             "security"
-        ]
+        ],
+        "owner": {
+            "_id": "u101",
+            "fullname": "Puki Norma"
+        }
     },
     {
         "_id": "b9",
@@ -205,13 +227,10 @@
         "createdAt": 1685404800000,
         "labels": [
             "critical"
-        ]
-    },
-    {
-        "title": "te",
-        "severity": 3,
-        "description": "sdfdg",
-        "createdAt": 1745254777291,
-        "_id": "qRjdz9"
+        ],
+        "owner": {
+            "_id": "u101",
+            "fullname": "Puki Norma"
+        }
     }
 ]

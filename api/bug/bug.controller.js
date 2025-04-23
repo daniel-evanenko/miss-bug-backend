@@ -54,13 +54,12 @@ export async function updateBug(req, res) {
 export async function getBug(req, res) {
     const { bugId } = req.params
     try {
+        let visitedBugIds = req.cookies.visitedBugIds || []
+        if (!visitedBugIds.includes(bugId)) visitedBugIds.push(bugId)
+        if (visitedBugIds.length > 3) return res.status(403).send('Wait for a bit')
+
         const bug = await bugService.getById(bugId)
-
-        let visitCount = +req.cookies.visitCount || 0
-        visitCount++
-        res.cookie('visitCount', visitCount, { maxAge: 1000 * 7 })
-
-        if (visitCount >= 3) return res.status(401).send('Wait for a bit')
+        res.cookie('visitedBugIds', visitedBugIds, { maxAge: 1000 * 8 })
 
         res.send(bug)
 
