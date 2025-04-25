@@ -24,13 +24,5 @@
       "password": "123",
       "score": 10000,
       "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png"
-    },
-    {
-      "_id": "u104",
-      "fullname": "Muki G",
-      "username": "muki",
-      "password": "123",
-      "score": 10000,
-      "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png"
     }
   ]

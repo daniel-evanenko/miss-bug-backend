@@ -27,9 +27,9 @@ async function getById(userId) {
 
 async function remove(userId) {
     try {
-        const bugIdx = users.findIndex(user => user._id === userId)
-        if (bugIdx === -1) throw new Error('Cannot find user')
-        users.splice(bugIdx, 1)
+        const userIdx = users.findIndex(user => user._id === userId)
+        if (userIdx === -1) throw new Error('Cannot find user')
+        users.splice(userIdx, 1)
         await _saveUsersToFile()
     } catch (err) {
         console.log('err:', err)
@@ -39,12 +39,12 @@ async function remove(userId) {
 async function save(userToSave) {
     try {
         if (userToSave._id) {
-            const bugIdx = users.findIndex(user => user._id === userToSave._id)
-            if (bugIdx === -1) throw new Error('Cannot find user')
-            users[bugIdx] = userToSave
+            const userIdx = users.findIndex(user => user._id === userToSave._id)
+            if (userIdx === -1) throw new Error('Cannot find user')
+            users[userIdx] = userToSave
         } else {
             userToSave._id = makeId()
-            userToSave.imgUrl = 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png'
+            if (!userToSave.imgUrl) userToSave.imgUrl = 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png'
             users.unshift(userToSave)
         }
         await _saveUsersToFile()
