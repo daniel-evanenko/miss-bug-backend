@@ -13,7 +13,6 @@ const bugs = readJsonFile('./data/bugs.json')
 
 async function query(filterBy) {
     let bugsToDisplay = bugs
-    console.log("🚀 ~ query ~ bugsToDisplay:", bugsToDisplay)
     try {
         if (filterBy.title) {
             const regExp = new RegExp(filterBy.title, 'i')
