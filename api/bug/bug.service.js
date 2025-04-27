@@ -20,8 +20,24 @@ async function query(filterBy) {
             bugsToDisplay = bugsToDisplay.filter(bug => regExp.test(bug.title))
         }
 
-        if (filterBy.severity) {
-            bugsToDisplay = bugsToDisplay.filter(bug => bug.severity >= filterBy.severity)
+        if (filterBy.sortBy) {
+            bugsToDisplay.sort((a, b) => {
+                switch (filterBy.sortBy) {
+                    case 'title':
+                        return a.title.localeCompare(b.title);
+
+                    case 'createdAt':
+                        return new Date(b.createdAt) - new Date(a.createdAt);
+
+                    case 'severity':
+                        return b.severity - a.severity;
+
+                    default:
+                        return 0;
+                }
+            });
+
+
         }
         if (Array.isArray(filterBy.byLabels) && filterBy.byLabels.length > 0) {
             bugsToDisplay = bugsToDisplay.filter(bug =>

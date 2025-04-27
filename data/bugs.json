@@ -1,5 +1,27 @@
 [
     {
+        "title": "44",
+        "severity": 54,
+        "description": "555",
+        "createdAt": 1745784938277,
+        "owner": {
+            "_id": "r0MwNz",
+            "fullname": "daniel1"
+        },
+        "_id": "2O0Jxd"
+    },
+    {
+        "title": "a",
+        "severity": 99,
+        "description": "a",
+        "createdAt": 1745784563051,
+        "owner": {
+            "_id": "r0MwNz",
+            "fullname": "daniel1"
+        },
+        "_id": "9RMd49"
+    },
+    {
         "_id": "wqe18a",
         "title": "daniel",
         "severity": 66,
@@ -8,20 +30,6 @@
         "owner": {
             "_id": "r0MwNz",
             "fullname": "daniel"
-        }
-    },
-    {
-        "_id": "b1",
-        "title": "Sample bug report 1",
-        "severity": 2,
-        "description": "Auto-generated bug description #1",
-        "createdAt": 1681776000000,
-        "labels": [
-            "api"
-        ],
-        "owner": {
-            "_id": "u101",
-            "fullname": "Puki Norma"
         }
     },
     {
@@ -40,14 +48,57 @@
         }
     },
     {
-        "_id": "b11",
-        "title": "Sample bug report 11",
-        "severity": 1,
-        "description": "Auto-generated bug description #11",
-        "createdAt": 1685404800000,
+        "_id": "b19",
+        "title": "Sample bug report 19",
+        "severity": 3,
+        "description": "Auto-generated bug description #19",
+        "createdAt": 1697673600000,
         "labels": [
-            "backend",
-            "ux"
+            "validation"
+        ],
+        "owner": {
+            "_id": "u101",
+            "fullname": "Puki Norma"
+        }
+    },
+    {
+        "_id": "b5",
+        "title": "Sample bug report 5",
+        "severity": 3,
+        "description": "Auto-generated bug description #5",
+        "createdAt": 1721865600000,
+        "labels": [
+            "validation",
+            "dev-branch"
+        ],
+        "owner": {
+            "_id": "u101",
+            "fullname": "Puki Norma"
+        }
+    },
+    {
+        "_id": "b8",
+        "title": "Sample bug report 8",
+        "severity": 3,
+        "description": "Auto-generated bug description #8",
+        "createdAt": 1681776000000,
+        "labels": [
+            "api",
+            "security"
+        ],
+        "owner": {
+            "_id": "u101",
+            "fullname": "Puki Norma"
+        }
+    },
+    {
+        "_id": "b1",
+        "title": "Sample bug report 1",
+        "severity": 2,
+        "description": "Auto-generated bug description #1",
+        "createdAt": 1681776000000,
+        "labels": [
+            "api"
         ],
         "owner": {
             "_id": "u101",
@@ -101,36 +152,6 @@
         }
     },
     {
-        "_id": "b19",
-        "title": "Sample bug report 19",
-        "severity": 3,
-        "description": "Auto-generated bug description #19",
-        "createdAt": 1697673600000,
-        "labels": [
-            "validation"
-        ],
-        "owner": {
-            "_id": "u101",
-            "fullname": "Puki Norma"
-        }
-    },
-    {
-        "_id": "b2",
-        "title": "Sample bug report 2",
-        "severity": 1,
-        "description": "Auto-generated bug description #2",
-        "createdAt": 1696896000000,
-        "labels": [
-            "minor",
-            "security",
-            "api"
-        ],
-        "owner": {
-            "_id": "u101",
-            "fullname": "Puki Norma"
-        }
-    },
-    {
         "_id": "b20",
         "title": "Sample bug report 20",
         "severity": 2,
@@ -140,52 +161,6 @@
             "bug",
             "api",
             "critical"
-        ],
-        "owner": {
-            "_id": "u101",
-            "fullname": "Puki Norma"
-        }
-    },
-    {
-        "_id": "b3",
-        "title": "Sample bug report 3",
-        "severity": 1,
-        "description": "Auto-generated bug description #3",
-        "createdAt": 1718409600000,
-        "labels": [
-            "security",
-            "dev-branch",
-            "minor"
-        ],
-        "owner": {
-            "_id": "u101",
-            "fullname": "Puki Norma"
-        }
-    },
-    {
-        "_id": "b4",
-        "title": "Sample bug report 4",
-        "severity": 1,
-        "description": "Auto-generated bug description #4",
-        "createdAt": 1675728000000,
-        "labels": [
-            "bug",
-            "urgent"
-        ],
-        "owner": {
-            "_id": "u101",
-            "fullname": "Puki Norma"
-        }
-    },
-    {
-        "_id": "b5",
-        "title": "Sample bug report 5",
-        "severity": 3,
-        "description": "Auto-generated bug description #5",
-        "createdAt": 1721865600000,
-        "labels": [
-            "validation",
-            "dev-branch"
         ],
         "owner": {
             "_id": "u101",
@@ -223,14 +198,61 @@
         }
     },
     {
-        "_id": "b8",
-        "title": "Sample bug report 8",
-        "severity": 3,
-        "description": "Auto-generated bug description #8",
-        "createdAt": 1681776000000,
+        "_id": "b11",
+        "title": "Sample bug report 11",
+        "severity": 1,
+        "description": "Auto-generated bug description #11",
+        "createdAt": 1685404800000,
         "labels": [
-            "api",
-            "security"
+            "backend",
+            "ux"
+        ],
+        "owner": {
+            "_id": "u101",
+            "fullname": "Puki Norma"
+        }
+    },
+    {
+        "_id": "b2",
+        "title": "Sample bug report 2",
+        "severity": 1,
+        "description": "Auto-generated bug description #2",
+        "createdAt": 1696896000000,
+        "labels": [
+            "minor",
+            "security",
+            "api"
+        ],
+        "owner": {
+            "_id": "u101",
+            "fullname": "Puki Norma"
+        }
+    },
+    {
+        "_id": "b3",
+        "title": "Sample bug report 3",
+        "severity": 1,
+        "description": "Auto-generated bug description #3",
+        "createdAt": 1718409600000,
+        "labels": [
+            "security",
+            "dev-branch",
+            "minor"
+        ],
+        "owner": {
+            "_id": "u101",
+            "fullname": "Puki Norma"
+        }
+    },
+    {
+        "_id": "b4",
+        "title": "Sample bug report 4",
+        "severity": 1,
+        "description": "Auto-generated bug description #4",
+        "createdAt": 1675728000000,
+        "labels": [
+            "bug",
+            "urgent"
         ],
         "owner": {
             "_id": "u101",

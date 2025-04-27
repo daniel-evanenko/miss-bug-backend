@@ -5,7 +5,6 @@ import { loggerService } from "../../services/logger.service.js"
 export async function getBugs(req, res) {
     const filterBy = {
         title: req.query.title,
-        severity: +req.query.severity,
         sortBy: req.query.sortBy,
         byLabels: req.query.byLabels,
         ownerId: req.query.ownerId

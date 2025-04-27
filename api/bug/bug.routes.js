@@ -6,10 +6,10 @@ import { log } from '../../middlewares/log.middleware.js'
 const router = express.Router()
 
 router.get('/', getBugs)
-router.get('/downloadPdf', downloadPdf)
+router.get('/downloadPdf', requireAuth, downloadPdf)
 router.get('/:bugId', log, getBug)
-router.put('/:bugId', updateBug)
-router.post('/', addBug)
-router.delete('/:bugId', requireAuth, removeBug)
+router.put('/:bugId', log, requireAuth, updateBug)
+router.post('/', log, requireAuth, addBug)
+router.delete('/:bugId', log, requireAuth, removeBug)
 
 export const bugRoutes = router
