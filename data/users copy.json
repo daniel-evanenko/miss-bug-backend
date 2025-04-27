@@ -1,27 +1,27 @@
 [
   {
-    "username": "puki",
-    "password": "$2b$10$sg64mnnjw31jPMbuk718TORJLur/RqY3vllzRqqGztgtVei085x9G",
-    "fullname": "Puki Norma",
-    "score": "1000",
-    "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
-    "_id": "u101"
-},
-    {
-      "_id": "u102",
-      "fullname": "Master Adminov",
       "username": "admin",
-      "password": "123",
-      "isAdmin": true,
-      "score": 10000,
-      "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png"
-    },
-    {
+      "password": "$2b$10$dIuN4dRW3ZYSdq5ExuVs4OBIWPwBIzgEmz47zhKfHbitxV/x44oYC",
+      "fullname": "Master Adminov",
+      "score": "1000",
+      "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
+      "_id": "u102",
+      "isAdmin": true
+  },
+  {
+      "username": "puki",
+      "password": "$2b$10$sg64mnnjw31jPMbuk718TORJLur/RqY3vllzRqqGztgtVei085x9G",
+      "fullname": "Puki Norma",
+      "score": "1000",
+      "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
+      "_id": "u101"
+  },
+  {
       "_id": "u103",
       "fullname": "Muki G",
       "username": "muki",
       "password": "123",
       "score": 10000,
       "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png"
-    }
-  ]
+  }
+]

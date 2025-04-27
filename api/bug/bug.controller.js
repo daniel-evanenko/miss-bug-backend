@@ -41,7 +41,9 @@ export async function updateBug(req, res) {
         title: req.body.title,
         severity: req.body.severity,
         description: req.body.description,
-        createdAt: req.body.createdAt
+        createdAt: req.body.createdAt,
+        owner: req.body.owner
+
     }
     try {
         const savedBug = await bugService.save(bugToSave)
@@ -73,7 +75,7 @@ export async function getBug(req, res) {
 export async function removeBug(req, res) {
     const { bugId } = req.params
     try {
-        await bugService.remove(bugId,req.loggedinUser)
+        await bugService.remove(bugId, req.loggedinUser)
         res.send('OK')
     } catch (err) {
         loggerService.error(`Couldn't remove bug ${bugId}`, err)

@@ -1,4 +1,5 @@
 import { makeId, readJsonFile, writeJsonFile } from "../../services/utils.js"
+import { bugService } from "../bug/bug.service.js"
 
 export const userService = {
     query,
@@ -29,10 +30,15 @@ async function remove(userId) {
     try {
         const userIdx = users.findIndex(user => user._id === userId)
         if (userIdx === -1) throw new Error('Cannot find user')
+
+        const userBugs = await bugService.query({ ownerId: userId })
+        if (userBugs.length > 0) throw new Error('Cannot delete user that has bugs')
+
         users.splice(userIdx, 1)
         await _saveUsersToFile()
     } catch (err) {
         console.log('err:', err)
+        throw err
     }
 }
 
@@ -63,7 +69,7 @@ function _saveUsersToFile() {
 async function getByUsername(username) {
     try {
         const user = users.find(user => user.username === username)
-        // if (!user) throw `User not found by username : ${username}`
+        if (!user) throw `User not found by username : ${username}`
         return user
     } catch (err) {
         loggerService.error('userService[getByUsername] : ', err)
