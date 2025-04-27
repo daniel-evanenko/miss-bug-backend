@@ -1,3 +1,4 @@
+import { loggerService } from "../../services/logger.service.js"
 import { makeId, readJsonFile, writeJsonFile } from "../../services/utils.js"
 import { PDFDocument, rgb, StandardFonts } from 'pdf-lib'
 
@@ -27,25 +28,8 @@ async function query(filterBy) {
                 Array.isArray(bug.labels) && filterBy.byLabels.every(label => bug.labels.includes(label))
             );
         }
-        if (filterBy.sortBy) {
-            switch (filterBy.sortBy) {
-                case 'title':
-                    bugsToDisplay.sort((a, b) => {
-                        return (a.title || '').localeCompare(b.title || '')
-                    })
-                    break;
-
-                case 'severity':
-                    bugsToDisplay.sort((a, b) => Number(b.severity) - Number(a.severity))
-                    break;
-
-                case 'createdAt':
-                    bugsToDisplay.sort((a, b) => Number(b.createdAt) - Number(a.createdAt))
-                    break;
-
-                default:
-                    break;
-            }
+        if (filterBy.ownerId) {
+            bugsToDisplay = bugsToDisplay.filter(bug => bug.owner._id === filterBy.ownerId);
         }
         return bugsToDisplay
     } catch (err) {
@@ -63,14 +47,20 @@ async function getById(bugId) {
     }
 }
 
-async function remove(bugId) {
+async function remove(bugId, loggedinUser) {
     try {
         const bugIdx = bugs.findIndex(bug => bug._id === bugId)
-        if (bugIdx === -1) throw new Error('Cannot find bug')
+        if (bugIdx === -1) throw `Couldn't find bug with _id ${bugId}`
+        const bug = bugs[bugIdx]
+        if (!loggedinUser?.isAdmin &&
+            bug.owner._id !== loggedinUser._id) {
+            throw 'Not your bug'
+        }
         bugs.splice(bugIdx, 1)
-        await savebugsToFile()
+        await _savebugsToFile()
     } catch (err) {
-        console.log('err:', err)
+        loggerService.error('bugService[remove] : ', err)
+        throw err
     }
 }
 
@@ -84,7 +74,7 @@ async function save(bugToSave) {
             bugToSave._id = makeId()
             bugs.unshift(bugToSave)
         }
-        await savebugsToFile()
+        await _savebugsToFile()
         return bugToSave
     } catch (err) {
         throw err
@@ -155,6 +145,6 @@ async function generatePdfFromData() {
     return await pdfDoc.save()
 }
 
-function savebugsToFile() {
+function _savebugsToFile() {
     return writeJsonFile('./data/bugs.json', bugs)
 }

@@ -1,13 +1,12 @@
 [
-    {
-      "_id": "u101",
-      "fullname": "Puki Norma",
-      "username": "puki",
-      "password": "123",
-      "isAdmin": false,
-      "score": 10000,
-      "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png"
-    },
+  {
+    "username": "puki",
+    "password": "$2b$10$sg64mnnjw31jPMbuk718TORJLur/RqY3vllzRqqGztgtVei085x9G",
+    "fullname": "Puki Norma",
+    "score": "1000",
+    "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
+    "_id": "u101"
+},
     {
       "_id": "u102",
       "fullname": "Master Adminov",

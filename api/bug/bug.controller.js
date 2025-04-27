@@ -8,6 +8,7 @@ export async function getBugs(req, res) {
         severity: +req.query.severity,
         sortBy: req.query.sortBy,
         byLabels: req.query.byLabels,
+        ownerId: req.query.ownerId
     }
     try {
         const bugs = await bugService.query(filterBy)
@@ -72,7 +73,7 @@ export async function getBug(req, res) {
 export async function removeBug(req, res) {
     const { bugId } = req.params
     try {
-        await bugService.remove(bugId)
+        await bugService.remove(bugId,req.loggedinUser)
         res.send('OK')
     } catch (err) {
         loggerService.error(`Couldn't remove bug ${bugId}`, err)

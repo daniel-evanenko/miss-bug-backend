@@ -1,5 +1,16 @@
 [
     {
+        "title": "test",
+        "severity": 1,
+        "description": "2sdf",
+        "createdAt": 1745676705096,
+        "owner": {
+            "_id": "",
+            "fullname": ""
+        },
+        "_id": "KmrdSa"
+    },
+    {
         "_id": "b1",
         "title": "Sample bug report 1",
         "severity": 2,
@@ -92,9 +103,16 @@
     {
         "_id": "b19",
         "title": "Sample bug report 19",
-        "severity": 0,
-        "description": 0,
-        "createdAt": 1697673600000
+        "severity": 3,
+        "description": "Auto-generated bug description #19",
+        "createdAt": 1697673600000,
+        "labels": [
+            "validation"
+        ],
+        "owner": {
+            "_id": "u101",
+            "fullname": "Puki Norma"
+        }
     },
     {
         "_id": "b2",
