@@ -24,20 +24,18 @@ async function query(filterBy) {
             bugsToDisplay.sort((a, b) => {
                 switch (filterBy.sortBy) {
                     case 'title':
-                        return a.title.localeCompare(b.title);
+                        return a.title.localeCompare(b.title)
 
                     case 'createdAt':
-                        return new Date(b.createdAt) - new Date(a.createdAt);
+                        return new Date(b.createdAt) - new Date(a.createdAt)
 
                     case 'severity':
-                        return b.severity - a.severity;
+                        return b.severity - a.severity
 
                     default:
-                        return 0;
+                        return 0
                 }
-            });
-
-
+            })
         }
         if (Array.isArray(filterBy.byLabels) && filterBy.byLabels.length > 0) {
             bugsToDisplay = bugsToDisplay.filter(bug =>
