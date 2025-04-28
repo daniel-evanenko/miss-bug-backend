@@ -1,17 +1,15 @@
 import { dbService } from "../../services/db.service.js"
 import { loggerService } from "../../services/logger.service.js"
-import { makeId, readJsonFile, writeJsonFile } from "../../services/utils.js"
 import { PDFDocument, rgb, StandardFonts } from 'pdf-lib'
 
 export const bugService = {
     query,
     getById,
     remove,
-    save,
-    generatePdfFromData
+    update,
+    generatePdfFromData,
+    add
 }
-
-const bugs = readJsonFile('./data/bugs.json')
 
 async function query(filterBy = { title: '' }) {
     try {
@@ -27,50 +25,76 @@ async function query(filterBy = { title: '' }) {
 
 async function getById(bugId) {
     try {
-        const bug = bugs.find(bug => bug._id === bugId)
-        if (!bug) throw new Error('Cannot find bug')
+        const criteria = { _id: dbService.mongoID(bugId) }
+        const collection = await dbService.getCollection('bug')
+        const bug = await collection.findOne(criteria)
+
+        bug.createdAt = bug._id.getTimestamp()
         return bug
     } catch (err) {
+        loggerService.error(`while finding bug ${bugId}`, err)
         throw err
     }
 }
 
 async function remove(bugId, loggedinUser) {
+    const { _id: ownerId, isAdmin } = loggedinUser
+
     try {
-        const bugIdx = bugs.findIndex(bug => bug._id === bugId)
-        if (bugIdx === -1) throw `Couldn't find bug with _id ${bugId}`
-        const bug = bugs[bugIdx]
-        if (!loggedinUser?.isAdmin &&
-            bug.owner._id !== loggedinUser._id) {
-            throw 'Not your bug'
+        const criteria = {
+            _id: dbService.mongoID(bugId),
         }
-        bugs.splice(bugIdx, 1)
-        await _savebugsToFile()
+        if (!isAdmin) criteria['owner.ownerId'] = ownerId;
+
+
+        const collection = await dbService.getCollection('bug')
+        const res = await collection.deleteOne(criteria)
+
+        if (res.deletedCount === 0) throw ('Not your bug')
+        return bugId
     } catch (err) {
-        loggerService.error('bugService[remove] : ', err)
+        loggerService.error(`cannot remove bug ${bugId}`, err)
         throw err
     }
 }
 
-async function save(bugToSave) {
+async function add(bug) {
     try {
-        if (bugToSave._id) {
-            const bugIdx = bugs.findIndex(bug => bug._id === bugToSave._id)
-            if (bugIdx === -1) throw new Error('Cannot find bug')
-            bugs[bugIdx] = bugToSave
-        } else {
-            bugToSave._id = makeId()
-            bugs.unshift(bugToSave)
-        }
-        await _savebugsToFile()
-        return bugToSave
+        const collection = await dbService.getCollection('bug')
+        await collection.insertOne(bug)
+        return bug
     } catch (err) {
+        loggerService.error('cannot insert bug', err)
         throw err
     }
 }
 
+async function update(bug) {
+    const bugToSave = {
+        title: bug.title,
+        severity: bug.severity,
+        description: bug.description,
+        createdAt: bug.createdAt,
+        labels: bug.labels,
+        owner: bug.owner
+    }
+    try {
+        const criteria = { _id: dbService.mongoID(bug._id) }
+
+        const collection = await dbService.getCollection('bug')
+        await collection.updateOne(criteria, { $set: bugToSave })
+
+        return bug
+    } catch (err) {
+        loggerService.error(`cannot update bug ${bug._id}`, err)
+        throw err
+    }
+}
 
 async function generatePdfFromData() {
+
+    const collection = await dbService.getCollection('bug')
+    const bugs = await collection.find({}).toArray()
 
     const pdfDoc = await PDFDocument.create()
     const font = await pdfDoc.embedFont(StandardFonts.Helvetica)
@@ -133,10 +157,6 @@ async function generatePdfFromData() {
     return await pdfDoc.save()
 }
 
-function _savebugsToFile() {
-    return writeJsonFile('./data/bugs.json', bugs)
-}
-
 function _buildCriteria(filterBy) {
     const criteria = {};
 
@@ -153,7 +173,7 @@ function _buildCriteria(filterBy) {
     }
 
     if (filterBy.ownerId) {
-        criteria.ownerId = filterBy.ownerId;
+        criteria['owner.ownerId'] = filterBy.ownerId;
     }
 
     return criteria;

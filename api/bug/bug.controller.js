@@ -36,18 +36,15 @@ export async function downloadPdf(req, res) {
 }
 
 export async function updateBug(req, res) {
+    const { loggedinUser, body: bug } = req
+    const { _id: userId, isAdmin } = loggedinUser
 
-    const bugToSave = {
-        _id: req.body._id,
-        title: req.body.title,
-        severity: req.body.severity,
-        description: req.body.description,
-        createdAt: req.body.createdAt,
-        owner: req.body.owner
-
+    if (!isAdmin && bug.owner._id !== userId) {
+        res.status(403).send('Not your bug...')
+        return
     }
     try {
-        const savedBug = await bugService.save(bugToSave)
+        const savedBug = await bugService.update(bug)
         res.send(savedBug)
     } catch (err) {
         loggerService.error(`Couldn't save bug`, err)
@@ -55,16 +52,16 @@ export async function updateBug(req, res) {
     }
 }
 
-export async function getBug(req, res) {
-    const { bugId } = req.params
+export async function getBugById(req, res) {
+    console.log("🚀 ~ getBugById ~ req:", req.params.bugId)
     try {
-        let visitedBugIds = req.cookies.visitedBugIds || []
-        if (!visitedBugIds.includes(bugId)) visitedBugIds.push(bugId)
-        if (visitedBugIds.length > 3) return res.status(403).send('Wait for a bit')
+        const bugId  = req.params.bugId
+        // let visitedBugIds = req.cookies.visitedBugIds || []
+        // if (!visitedBugIds.includes(bugId)) visitedBugIds.push(bugId)
+        // if (visitedBugIds.length > 3) return res.status(403).send('Wait for a bit')
+        // res.cookie('visitedBugIds', visitedBugIds, { maxAge: 1000 * 8 })
 
         const bug = await bugService.getById(bugId)
-        res.cookie('visitedBugIds', visitedBugIds, { maxAge: 1000 * 8 })
-
         res.send(bug)
 
     } catch (err) {
@@ -87,16 +84,12 @@ export async function removeBug(req, res) {
 
 export async function addBug(req, res) {
 
-    const bugToSave = {
-        title: req.body.title,
-        severity: req.body.severity,
-        description: req.body.description,
-        createdAt: req.body.createdAt,
-        owner: req.body.owner
-    }
+    const { loggedinUser, body: bug } = req
+
     try {
-        const savedBug = await bugService.save(bugToSave)
-        res.send(savedBug)
+        bug.owner = loggedinUser
+        const addedBug = await bugService.add(bug)
+        res.send(addedBug)
     } catch (err) {
         loggerService.error(`Couldn't add bug`, err)
         res.status(400).send(`Couldn't add bug`)
