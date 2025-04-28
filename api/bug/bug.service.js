@@ -19,7 +19,9 @@ async function query(filterBy) {
             const regExp = new RegExp(filterBy.title, 'i')
             bugsToDisplay = bugsToDisplay.filter(bug => regExp.test(bug.title))
         }
-
+        if (filterBy.severity) {
+            bugsToDisplay = bugsToDisplay.filter(bug => bug.severity >= filterBy.severity)
+        }
         if (filterBy.sortBy) {
             bugsToDisplay.sort((a, b) => {
                 switch (filterBy.sortBy) {

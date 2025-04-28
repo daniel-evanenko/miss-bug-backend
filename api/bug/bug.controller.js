@@ -6,6 +6,7 @@ export async function getBugs(req, res) {
     const filterBy = {
         title: req.query.title,
         sortBy: req.query.sortBy,
+        severity: +req.query.severity,
         byLabels: req.query.byLabels,
         ownerId: req.query.ownerId
     }
