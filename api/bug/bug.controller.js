@@ -4,11 +4,12 @@ import { loggerService } from "../../services/logger.service.js"
 
 export async function getBugs(req, res) {
     const filterBy = {
-        title: req.query.title,
-        sortBy: req.query.sortBy,
-        severity: +req.query.severity,
-        byLabels: req.query.byLabels,
-        ownerId: req.query.ownerId
+        title: req.query.title || '',
+        sortBy: req.query.sortBy || '',
+        sortDir: req.query.sortDir || 1,
+        severity: +req.query.severity || 0,
+        byLabels: req.query.byLabels || '',
+        ownerId: req.query.ownerId || ''
     }
     try {
         const bugs = await bugService.query(filterBy)

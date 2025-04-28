@@ -1,3 +1,4 @@
+import { dbService } from "../../services/db.service.js"
 import { loggerService } from "../../services/logger.service.js"
 import { makeId, readJsonFile, writeJsonFile } from "../../services/utils.js"
 import { PDFDocument, rgb, StandardFonts } from 'pdf-lib'
@@ -12,41 +13,12 @@ export const bugService = {
 
 const bugs = readJsonFile('./data/bugs.json')
 
-async function query(filterBy) {
-    let bugsToDisplay = bugs
+async function query(filterBy = { title: '' }) {
     try {
-        if (filterBy.title) {
-            const regExp = new RegExp(filterBy.title, 'i')
-            bugsToDisplay = bugsToDisplay.filter(bug => regExp.test(bug.title))
-        }
-        if (filterBy.severity) {
-            bugsToDisplay = bugsToDisplay.filter(bug => bug.severity >= filterBy.severity)
-        }
-        if (filterBy.sortBy) {
-            bugsToDisplay.sort((a, b) => {
-                switch (filterBy.sortBy) {
-                    case 'title':
-                        return a.title.localeCompare(b.title)
-
-                    case 'createdAt':
-                        return new Date(b.createdAt) - new Date(a.createdAt)
-
-                    case 'severity':
-                        return b.severity - a.severity
-
-                    default:
-                        return 0
-                }
-            })
-        }
-        if (Array.isArray(filterBy.byLabels) && filterBy.byLabels.length > 0) {
-            bugsToDisplay = bugsToDisplay.filter(bug =>
-                Array.isArray(bug.labels) && filterBy.byLabels.every(label => bug.labels.includes(label))
-            );
-        }
-        if (filterBy.ownerId) {
-            bugsToDisplay = bugsToDisplay.filter(bug => bug.owner._id === filterBy.ownerId);
-        }
+        const criteria = _buildCriteria(filterBy)
+        const sort = _buildSort(filterBy)
+        const collection = await dbService.getCollection('bug')
+        const bugsToDisplay = await collection.find(criteria, { sort }).toArray()
         return bugsToDisplay
     } catch (err) {
         throw err
@@ -163,4 +135,31 @@ async function generatePdfFromData() {
 
 function _savebugsToFile() {
     return writeJsonFile('./data/bugs.json', bugs)
+}
+
+function _buildCriteria(filterBy) {
+    const criteria = {};
+
+    if (filterBy.title) {
+        criteria.title = { $regex: filterBy.title, $options: 'i' };
+    }
+
+    if (filterBy.severity != null) {
+        criteria.severity = { $gte: +filterBy.severity };
+    }
+
+    if (Array.isArray(filterBy.byLabels) && filterBy.byLabels.length > 0) {
+        criteria.labels = { $all: filterBy.byLabels };
+    }
+
+    if (filterBy.ownerId) {
+        criteria.ownerId = filterBy.ownerId;
+    }
+
+    return criteria;
+}
+
+function _buildSort(filterBy) {
+    if (!filterBy.sortBy || !filterBy.sortDir) return {};
+    return { [filterBy.sortBy]: filterBy.sortDir };
 }
