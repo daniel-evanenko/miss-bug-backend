@@ -1,0 +1,38 @@
+[{
+  "_id": {
+    "$oid": "6810b6d140327b00d74d3f4e"
+  },
+  "title": "Sample bug report 3",
+  "severity": 1,
+  "description": "Auto-generated bug description #3",
+  "labels": [
+    "security",
+    "dev-branch",
+    "minor"
+  ],
+  "owner": {
+    "ownerId": {
+      "$oid": "680fd37640327b00d74d3f2a"
+    },
+    "fullname": "Puki Norma"
+  }
+},
+{
+  "_id": {
+    "$oid": "6810b72640327b00d74d3f4f"
+  },
+  "title": "Sample bug report 10",
+  "severity": 13,
+  "description": "Auto-generated bug description #10",
+  "labels": [
+    "security",
+    "dev-branch",
+    "minor"
+  ],
+  "owner": {
+    "ownerId": {
+      "$oid": "680fd37640327b00d74d3f2a"
+    },
+    "fullname": "Puki Norma"
+  }
+}]

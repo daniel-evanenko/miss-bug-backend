@@ -38,25 +38,26 @@ async function getById(bugId) {
 }
 
 async function remove(bugId, loggedinUser) {
-    const { _id: ownerId, isAdmin } = loggedinUser
-
+    const { ownerId, isAdmin } = loggedinUser
     try {
         const criteria = {
             _id: dbService.mongoID(bugId),
+        };
+        if (!isAdmin) {
+            criteria['owner.ownerId'] = dbService.mongoID(ownerId)
         }
-        if (!isAdmin) criteria['owner.ownerId'] = ownerId;
-
 
         const collection = await dbService.getCollection('bug')
-        const res = await collection.deleteOne(criteria)
+        const res = await collection.deleteOne(criteria);
 
-        if (res.deletedCount === 0) throw ('Not your bug')
+        if (res.deletedCount === 0) throw new Error('Not your bug')
         return bugId
     } catch (err) {
         loggerService.error(`cannot remove bug ${bugId}`, err)
         throw err
     }
 }
+
 
 async function add(bug) {
     try {
@@ -76,7 +77,10 @@ async function update(bug) {
         description: bug.description,
         createdAt: bug.createdAt,
         labels: bug.labels,
-        owner: bug.owner
+        owner: {
+            ...bug.owner,
+            ownerId: dbService.mongoID(bug.owner.ownerId)
+        }
     }
     try {
         const criteria = { _id: dbService.mongoID(bug._id) }

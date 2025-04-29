@@ -48,8 +48,30 @@ async function getById(userId) {
         var criteria = { _id: dbService.mongoID(userId) }
 
         const collection = await dbService.getCollection(COLLECTION_NAME)
-        const user = await collection.findOne(criteria)
-        delete user.password
+        let user = await collection.aggregate([
+            { $match: criteria },
+            {
+                $lookup: {
+                    from: "bug",
+                    localField: "_id",
+                    foreignField: "owner.ownerId",
+                    as: "bugs"
+                }
+            },
+            {
+                $project: {
+                    password: 0
+                }
+            }
+        ])
+
+        user = await user.next()
+
+        if (!user) {
+            throw new Error('User not found');
+        }
+
+        user.createdAt = user._id.getTimestamp();
 
         return user
     } catch (err) {
@@ -87,6 +109,8 @@ async function update(user) {
         const userToSave = {
             _id: dbService.mongoID(user._id), // needed for the returnd obj
             fullname: user.fullname,
+            fullname: user.username,
+            fullname: user.description,
             score: user.score,
         }
         const collection = await dbService.getCollection(COLLECTION_NAME)
@@ -107,7 +131,7 @@ async function add(user) {
             fullname: user.fullname,
             imgUrl: user.imgUrl,
             isAdmin: user.isAdmin,
-            score: 100,
+            score: user.score,
         }
         const collection = await dbService.getCollection(COLLECTION_NAME)
         await collection.insertOne(userToAdd)

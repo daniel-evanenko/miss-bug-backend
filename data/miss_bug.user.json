@@ -1,0 +1,21 @@
+[{
+  "_id": {
+    "$oid": "680fd33640327b00d74d3f29"
+  },
+  "username": "admin",
+  "password": "$2b$10$dIuN4dRW3ZYSdq5ExuVs4OBIWPwBIzgEmz47zhKfHbitxV/x44oYC",
+  "fullname": "Master Adminov",
+  "score": "1000",
+  "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
+  "isAdmin": true
+},
+{
+  "_id": {
+    "$oid": "680fd37640327b00d74d3f2a"
+  },
+  "username": "puki",
+  "password": "$2b$10$sg64mnnjw31jPMbuk718TORJLur/RqY3vllzRqqGztgtVei085x9G",
+  "fullname": "Puki Norma",
+  "score": "1000",
+  "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png"
+}]
