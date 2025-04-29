@@ -34,5 +34,24 @@
       "$oid": "680fd37640327b00d74d3f2a"
     },
     "fullname": "Puki Norma"
+  },
+  "createdAt": null
+},
+{
+  "_id": {
+    "$oid": "6811134140327b00d74d3f80"
+  },
+  "title": "Sample bug report 15",
+  "severity": 15,
+  "description": "Auto-generated bug description #15",
+  "labels": [
+    "security",
+    "dev-branch"
+  ],
+  "owner": {
+    "ownerId": {
+      "$oid": "6811132040327b00d74d3f7e"
+    },
+    "fullname": "daniel e"
   }
 }]

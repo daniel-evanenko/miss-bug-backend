@@ -53,7 +53,6 @@ export async function updateBug(req, res) {
 }
 
 export async function getBugById(req, res) {
-    console.log("🚀 ~ getBugById ~ req:", req.params.bugId)
     try {
         const bugId  = req.params.bugId
         // let visitedBugIds = req.cookies.visitedBugIds || []

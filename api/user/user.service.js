@@ -45,7 +45,7 @@ async function query(filterBy = {}) {
 
 async function getById(userId) {
     try {
-        var criteria = { _id: dbService.mongoID(userId) }
+        const criteria = { _id: dbService.mongoID(userId) }
 
         const collection = await dbService.getCollection(COLLECTION_NAME)
         let user = await collection.aggregate([

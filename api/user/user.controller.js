@@ -22,11 +22,11 @@ export async function updateUser(req, res) {
         score: req.body.score
     }
     try {
-        const savedUser = await userService.save(userToSave)
+        const savedUser = await userService.update(userToSave)
         res.send(savedUser)
     } catch (err) {
-        loggerService.error(`Couldn't save user`, err)
-        res.status(400).send(`Couldn't save user`)
+        loggerService.error(`Couldn't update user`, err)
+        res.status(400).send(`Couldn't update user`)
     }
 }
 
@@ -70,7 +70,7 @@ export async function addUser(req, res) {
         score: req.body.score
     }
     try {
-        const saveduser = await userService.save(userToSave)
+        const saveduser = await userService.add(userToSave)
         res.send(saveduser)
     } catch (err) {
         loggerService.error(`Couldn't add user`, err)

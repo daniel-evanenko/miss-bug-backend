@@ -7,6 +7,7 @@ import { userRoutes } from './api/user/user.routes.js'
 import { authRoutes } from './api/auth/auth.routes.js'
 import path from 'path'
 import { fileURLToPath } from 'url'
+import { msgRoutes } from './api/msg/msg.routes.js'
 
 const app = express()
 
@@ -29,6 +30,8 @@ app.use(express.json())
 app.use('/api/user', userRoutes)
 app.use('/api/bug', bugRoutes)
 app.use('/api/auth', authRoutes)
+app.use('/api/msg', msgRoutes)
+
 
 app.get('/**', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'))

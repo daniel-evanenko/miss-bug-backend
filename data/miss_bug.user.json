@@ -18,4 +18,14 @@
   "fullname": "Puki Norma",
   "score": "1000",
   "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png"
+},
+{
+  "_id": {
+    "$oid": "6811132040327b00d74d3f7e"
+  },
+  "username": "daniel",
+  "password": "$2b$10$sg64mnnjw31jPMbuk718TORJLur/RqY3vllzRqqGztgtVei085x9G",
+  "fullname": "daniel e",
+  "score": "1000",
+  "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png"
 }]

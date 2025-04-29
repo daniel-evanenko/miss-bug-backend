@@ -1,0 +1,24 @@
+[{
+  "_id": {
+    "$oid": "6811094740327b00d74d3f77"
+  },
+  "txt": "Fix that bug already",
+  "aboutBugId": {
+    "$oid": "6810b6d140327b00d74d3f4e"
+  },
+  "byUserId": {
+    "$oid": "680fd37640327b00d74d3f2a"
+  }
+},
+{
+  "_id": {
+    "$oid": "6811138040327b00d74d3f85"
+  },
+  "txt": "Testing",
+  "aboutBugId": {
+    "$oid": "6811134140327b00d74d3f80"
+  },
+  "byUserId": {
+    "$oid": "6811132040327b00d74d3f7e"
+  }
+}]
