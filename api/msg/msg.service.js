@@ -136,8 +136,8 @@ async function update(msg) {
         const msgToSave = {
             _id: dbService.mongoID(msg._id), // needed for the returnd obj
             txt: msg.txt,
-            aboutBugId: msg.aboutBugId,
-            byUserId: msg.byUserId
+            aboutBugId: dbService.mongoID(msg.aboutBugId),
+            byUserId: dbService.mongoID(msg.byUserId)
         }
         const collection = await dbService.getCollection(COLLECTION_NAME)
         await collection.updateOne({ _id: msgToSave._id }, { $set: msgToSave })
@@ -150,11 +150,10 @@ async function update(msg) {
 
 async function add(msg) {
     try {
-        // peek only updatable fields!
         const msgToAdd = {
             txt: msg.txt,
-            aboutBugId: msg.aboutBugId,
-            byUserId: msg.byUserId
+            aboutBugId: dbService.mongoID(msg.aboutBugId),
+            byUserId: dbService.mongoID(msg.byUserId)
         }
         const collection = await dbService.getCollection(COLLECTION_NAME)
         await collection.insertOne(msgToAdd)

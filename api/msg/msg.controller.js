@@ -54,26 +54,22 @@ export async function getMsg(req, res) {
 }
 
 export async function removeMsg(req, res) {
-    const { userId } = req.params
+    const { msgId } = req.params
     try {
-        await msgService.remove(userId)
+        await msgService.remove(msgId)
         res.send('OK')
     } catch (err) {
-        loggerService.error(`Couldn't remove msg ${userId}`, err)
+        loggerService.error(`Couldn't remove msg ${msgId}`, err)
         res.status(400).send(`Couldn't remove msg`)
 
     }
 }
 
 export async function addMsg(req, res) {
+    const { body: msg } = req
 
-    const msgToAdd = {
-        txt: req.query.txt || '',
-        aboutBugId: req.query.aboutBugId || '',
-        byUserId: req.query.byUserId || '',
-    }
     try {
-        const savedMsg = await msgService.add(msgToAdd)
+        const savedMsg = await msgService.add(msg)
         res.send(savedMsg)
     } catch (err) {
         loggerService.error(`Couldn't add msg`, err)
