@@ -21,4 +21,28 @@
   "byUserId": {
     "$oid": "6811132040327b00d74d3f7e"
   }
+},
+{
+  "_id": {
+    "$oid": "6819195b31efe447603bd8ad"
+  },
+  "txt": "daniel",
+  "aboutBugId": {
+    "$oid": "6810b6d140327b00d74d3f4e"
+  },
+  "byUserId": {
+    "$oid": "6819195031efe447603bd8ac"
+  }
+},
+{
+  "_id": {
+    "$oid": "68191bbb31efe447603bd8ae"
+  },
+  "txt": "test",
+  "aboutBugId": {
+    "$oid": "6810b72640327b00d74d3f4f"
+  },
+  "byUserId": {
+    "$oid": "680fd33640327b00d74d3f29"
+  }
 }]

@@ -2,12 +2,12 @@ import { dbService } from '../../services/db.service.js'
 import { loggerService } from '../../services/logger.service.js'
 
 export const userService = {
-    add, // Create (Signup)
-    getById, // Read (Profile page)
-    update, // Update (Edit profile)
-    remove, // Delete (remove user)
-    query, // List (of users)
-    getByUsername, // Used for Login
+    add,
+    getById,
+    update, 
+    remove,
+    query, 
+    getByUsername, 
 }
 
 const COLLECTION_NAME = 'user'
@@ -93,10 +93,29 @@ async function getByUsername(username) {
 
 async function remove(userId) {
     try {
-        const criteria = { _id: dbService.mongoID(userId) }
+        const bugCollection = await dbService.getCollection('bug')
+        const msgCollection = await dbService.getCollection('msg')
 
-        const collection = await dbService.getCollection(COLLECTION_NAME)
-        await collection.deleteOne(criteria)
+        const userObjectId = dbService.mongoID(userId)
+
+        const ownedBugsCount = await bugCollection.countDocuments({ 'owner.ownerId': userObjectId })
+        const ownedMessagesCount = await msgCollection.countDocuments({ byUserId: userObjectId })
+        if (ownedBugsCount > 0 || ownedMessagesCount > 0) {
+            const errorMessage = `Cannot delete user ${userId} as they own ${ownedBugsCount} bugs and ${ownedMessagesCount} messages.`
+            loggerService.warn(errorMessage)
+            throw new Error(errorMessage)
+        }
+
+        const userCollection = await dbService.getCollection('user')
+        const res = await userCollection.deleteOne({ _id: userObjectId })
+
+        if (res.deletedCount === 0) {
+            loggerService.warn(`User ${userId} not found for deletion.`)
+            throw new Error(`User ${userId} not found.`)
+        }
+
+        loggerService.info(`User ${userId} deleted successfully.`)
+        return userId
     } catch (err) {
         loggerService.error(`cannot remove user ${userId}`, err)
         throw err

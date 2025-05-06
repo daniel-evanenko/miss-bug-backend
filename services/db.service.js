@@ -1,9 +1,8 @@
 import { MongoClient, ObjectId } from 'mongodb'
+import { loggerService } from './logger.service.js'
 
-const config = {
-    dbURL: 'mongodb://localhost:27017',
-    dbName: 'miss_bug'
-}
+import { config } from '../config/index.js'
+
 
 
 const mongoID = ObjectId.createFromHexString
@@ -17,7 +16,7 @@ async function getCollection(collectionName) {
 		const collection = await db.collection(collectionName)
 		return collection
 	} catch (err) {
-		logger.error('Failed to get Mongo collection', err)
+		loggerService.error('Failed to get Mongo collection', err)
 		throw err
 	}
 }
@@ -29,7 +28,7 @@ async function _connect() {
 		const client = await MongoClient.connect(config.dbURL)
 		return dbConn = client.db(config.dbName)
 	} catch (err) {
-		logger.error('Cannot Connect to DB', err)
+		loggerService.error('Cannot Connect to DB', err)
 		throw err
 	}
 }

@@ -54,7 +54,7 @@ export async function updateBug(req, res) {
 
 export async function getBugById(req, res) {
     try {
-        const bugId  = req.params.bugId
+        const bugId = req.params.bugId
         // let visitedBugIds = req.cookies.visitedBugIds || []
         // if (!visitedBugIds.includes(bugId)) visitedBugIds.push(bugId)
         // if (visitedBugIds.length > 3) return res.status(403).send('Wait for a bit')
@@ -86,8 +86,7 @@ export async function addBug(req, res) {
     const { loggedinUser, body: bug } = req
 
     try {
-        bug.owner = loggedinUser
-        const addedBug = await bugService.add(bug)
+        const addedBug = await bugService.add(bug, loggedinUser)
         res.send(addedBug)
     } catch (err) {
         loggerService.error(`Couldn't add bug`, err)

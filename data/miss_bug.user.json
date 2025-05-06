@@ -28,4 +28,26 @@
   "fullname": "daniel e",
   "score": "1000",
   "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png"
+},
+{
+  "_id": {
+    "$oid": "681884a8d870922cf944b938"
+  },
+  "username": "test",
+  "password": "$2b$10$xcYIIpWdu4ZbEXk4A.9Q.uI4r0BYRI/PdNiAouVKzcc1jOgscw2IS",
+  "fullname": "test",
+  "imgUrl": "",
+  "isAdmin": null,
+  "score": "1000"
+},
+{
+  "_id": {
+    "$oid": "6819195031efe447603bd8ac"
+  },
+  "username": "daniel1",
+  "password": "$2b$10$Oyltb.7fX0m7yHKrvl1Ssep6MIfl3XMhtn1qVaMs4bL/LqL085mJK",
+  "fullname": "daniel1",
+  "imgUrl": "",
+  "isAdmin": null,
+  "score": "1000"
 }]

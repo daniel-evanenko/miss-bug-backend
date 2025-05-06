@@ -1,3 +1,4 @@
+import 'dotenv/config'
 import express from 'express'
 import { loggerService } from './services/logger.service.js'
 import cors from 'cors'

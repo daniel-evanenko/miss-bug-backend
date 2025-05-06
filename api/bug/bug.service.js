@@ -59,10 +59,19 @@ async function remove(bugId, loggedinUser) {
 }
 
 
-async function add(bug) {
+async function add(bug, loggedinUser) {
+    const { _id, fullname } = loggedinUser
+
     try {
+        const bugToAdd = {
+            ...bug,
+            owner: {
+                ownerId: dbService.mongoID(_id),
+                fullname
+            }
+        }
         const collection = await dbService.getCollection('bug')
-        await collection.insertOne(bug)
+        await collection.insertOne(bugToAdd)
         return bug
     } catch (err) {
         loggerService.error('cannot insert bug', err)

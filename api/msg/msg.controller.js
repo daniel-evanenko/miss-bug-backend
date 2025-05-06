@@ -66,9 +66,10 @@ export async function removeMsg(req, res) {
 }
 
 export async function addMsg(req, res) {
-    const { body: msg } = req
+    const { body: msg, loggedinUser } = req
 
     try {
+        msg.byUserId = loggedinUser._id
         const savedMsg = await msgService.add(msg)
         res.send(savedMsg)
     } catch (err) {

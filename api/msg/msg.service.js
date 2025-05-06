@@ -53,7 +53,6 @@ async function query(filterBy = {}) {
                 }
             }
         ]).toArray();
-
         return msgs;
     } catch (err) {
         loggerService.error('cannot find msgs', err);
